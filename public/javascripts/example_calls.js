@@ -9,6 +9,7 @@ $(document).ready(function() {
         // routes.findById()
         $.get('/stuff/' + id, function (data) {
             $('#aDiv').append('<p> findById gave us id: ' + data._id + '</p>');
+            $('#aDiv').append('<p>'+ JSON.stringify(data, undefined, 2) + '</p>');
         });
     });
 });
