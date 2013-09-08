@@ -1,8 +1,6 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
 
   #aDiv
     p Loading jQuery...
@@ -10,4 +8,11 @@ block content
   script(type='text/javascript')
     $(document).ready(function() {
         $('#aDiv').append('<p>jQuery loaded!</p>');
+    });
+
+  script(type='text/javascript')
+    $.get('/stuff', function(data) {
+        for (var i = 0; i < data.length; i++) {
+            $('#aDiv').append('<p>Object w/_id: ' + data[i]._id + ' has x: ' + data[i].x + '</p>');
+        }
     });
