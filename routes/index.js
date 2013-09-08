@@ -7,6 +7,7 @@ var bson = mongo.BSONPure;
 var server = new Server('localhost', 27017, {auto_reconnect: true});
 db = new db('test', server);
 
+
 db.open(function (err, db) {
     if (!err) {
         console.log("Connected to 'test'");
@@ -22,6 +23,7 @@ exports.index = function (req, res) {
   res.render('index', { title: 'Express' });
 };
 
+// GET all
 exports.findAll = function (req, res) {
     db.collection('testData', function (err, collection) {
         collection.find().toArray(function (err, items) {
@@ -30,6 +32,7 @@ exports.findAll = function (req, res) {
     });
 };
 
+// GET id 'uri/id'
 exports.findById = function (req, res) {
     var id = req.params.id;
     console.log('Retrieving item: ' + id);
@@ -40,6 +43,7 @@ exports.findById = function (req, res) {
     });
 };
 
+// POST
 exports.addStuff = function (req, res) {
     var stuff = req.body;
     console.log("Adding stuff: " + JSON.stringify(stuff));
@@ -55,6 +59,7 @@ exports.addStuff = function (req, res) {
     });
 };
 
+// PUT
 exports.updateStuff = function (req, res) {
     var id = req.params.id;
     var stuff = req.body;
@@ -73,6 +78,7 @@ exports.updateStuff = function (req, res) {
     });
 };
 
+// DELETE
 exports.deleteStuff = function (req, res) {
     var id = req.params.id;
     console.log("Deleting stuff: " + id);
