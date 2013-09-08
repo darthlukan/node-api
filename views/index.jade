@@ -3,16 +3,5 @@ extends layout
 block content
 
   #aDiv
-    p Loading jQuery...
 
-  script(type='text/javascript')
-    $(document).ready(function() {
-        $('#aDiv').append('<p>jQuery loaded!</p>');
-    });
-
-  script(type='text/javascript')
-    $.get('/stuff', function(data) {
-        for (var i = 0; i < data.length; i++) {
-            $('#aDiv').append('<p>Object w/_id: ' + data[i]._id + ' has x: ' + data[i].x + '</p>');
-        }
-    });
+  script(type='text/javascript' src='/javascripts/example_calls.js')
