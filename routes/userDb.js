@@ -1,7 +1,20 @@
-/**
- * Created with PyCharm.
- * User: brian
- * Date: 9/9/13
- * Time: 5:14 PM
- * To change this template use File | Settings | File Templates.
- */
+var user = {
+    _id: ObjectId(""),
+    username: "foo",
+    first_name: "bar",
+    last_name: "baz",
+    user_key: {
+        id: "",
+        type: "gpg/ssh/etc",
+        key_string: "public key string",
+        fingerprint: "string"
+    },
+    userDirs: {
+        settings: "$USER/settings",
+        files: "$USER/files",
+        mail: "$USER/mail"
+    },
+    joined: "datetime",
+    last_login: "datetime",
+    account_type: "admin/user/dev/etc"
+}
